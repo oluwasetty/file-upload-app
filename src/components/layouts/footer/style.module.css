@@ -1,0 +1,11 @@
+/* Styles for the footer */
+.footer {
+  background-color: #1a1a1a; /* Background color */
+  padding: 15px; /* Padding around the content */
+}
+
+/* Styles for paragraph elements inside the footer */
+.footer p {
+  color: #fff !important; /* Text color (white) */
+  text-align: center; /* Center-align text */
+}

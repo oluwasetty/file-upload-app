@@ -1,0 +1,42 @@
+/* Styles for the wrapper */
+.wrapper {
+  position: absolute; /* Position absolute */
+  bottom: 0; /* Positioned at the bottom */
+  right: 0; /* Positioned at the right */
+  background-color: white; /* Background color */
+  width: 400px; /* Width */
+  max-height: 400px; /* Maximum height */
+  border-top-left-radius: 8px; /* Rounded top-left corner */
+  border-top-right-radius: 8px; /* Rounded top-right corner */
+}
+
+/* Styles for the title inside the wrapper */
+.wrapper > .header {
+  position: 'relative';
+  background-color: rgba(242, 49, 138, 1.0); /* Background color */
+  margin: 0; /* Remove margin */
+  padding: 10px; /* Padding */
+  color: #fff;
+}
+
+/* Styles for the close button */
+.closeButton {
+  position: absolute; /* Position absolute */
+  top: 12px; /* Positioned at the top */
+  right: 15px; /* Positioned at the right */
+  background: transparent; /* Transparent background */
+  border: unset; /* No border */
+  font-size: 18px; /* Font size */
+  cursor: pointer; /* Cursor pointer */
+  color: #fff;
+}
+
+/* Styles for the close button on hover */
+.closeButton:hover {
+  opacity: 0.5; /* Reduced opacity */
+}
+
+.scrollable {
+  overflow: scroll; /* Enable scrolling */
+  max-height: 300px; /* Maximum height */
+}

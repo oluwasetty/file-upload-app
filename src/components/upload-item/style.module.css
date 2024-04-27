@@ -1,0 +1,44 @@
+/* Styles for the wrapperItem */
+.wrapperItem {
+  display: grid; /* Use grid layout */
+  grid-template-columns: calc(100% - 50px) 50px; /* Two columns, one for content and one for icon */
+  padding: 16px; /* Padding around the content */
+  box-shadow: 0px 1px 2px lightgrey; /* Box shadow for the item */
+}
+
+/* Styles for the left side of the item */
+.leftSide {
+  display: flex; /* Use flex layout */
+  flex-direction: column; /* Stack items vertically */
+  align-items: flex-start; /* Align items to the start */
+  margin-right: 8px; /* Margin on the right side */
+}
+
+/* Styles for the progress bar */
+.progressBar {
+  width: 100%; /* Full width */
+  height: 15px; /* Height of the progress bar */
+  background-color: lightgray; /* Background color */
+  margin-bottom: 8px; /* Margin at the bottom */
+  border-radius: 20px; /* Rounded corners */
+}
+
+/* Styles for the progress bar's fill */
+.progressBar > div {
+  height: 15px; /* Height of the fill */
+  border-radius: 20px; /* Rounded corners */
+  transition: width 1s; /* Smooth transition for width changes */
+}
+
+/* Styles for the label on the left side */
+.leftSide > label {
+  width: 100%; /* Full width */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Show ellipsis for overflowed text */
+  text-align: left; /* Align text to the left */
+}
+
+/* Styles for the percentage */
+.percentage {
+  margin-left: 12px; /* Margin on the left side */
+}
