@@ -4,7 +4,7 @@ This app integrates with the Dragonfly file upload API to generate predictive an
 
 ## Running the React App
 
-Copy the .env. examplecontent to a .env file in the root folder
+Copy the .env.example content to a .env file in the root folder
 
 In the project directory, you can run:
 
@@ -20,9 +20,9 @@ Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-**Note: You may experience Cors issues while running the app, a proxy midddleware as been developed to bypass this issue till it is resolved and it is included in this project as proxy. It is built with .Net Core**
+**Note: You may experience Cors issues while running the app, a proxy midddleware has been developed to bypass this issue till it is resolved and it is included in this project as proxy. It is built with .Net Core**
 
-To disable the use of the proxy middleware, navigate to src/apis/file-upload.js, under the functions get_url and process_image, you will see the functions to uncomment to use the proxy app.
+To disable the use of the proxy middleware, navigate to src/apis/file-upload.js, under the functions get_url and process_image, you will see the functions to uncomment to disable the middleware.
 
 ## Running the Proxy App
 
