@@ -19,16 +19,16 @@ import Styles from './style.module.css';
 // UploadProgress component
 const UploadProgress = props => {
     // Destructure props
-    const { fileProgress, uploadFile, retryUpload } = props;
+    const { files, uploadFile, retryUpload } = props;
     const [toggleUploadProgress, setToggleUploadProgress] = useState(false)
 
     // Calculate the number of uploaded files
-    const uploadedFileAmount = size(fileProgress);
+    const uploadedFileAmount = size(files);
 
     // useEffect hook to upload files when there are new files added to the progress
     useEffect(() => {
         // Filter files that have not been started uploading yet
-        const fileToUpload = toArray(fileProgress).filter(file => file.progress === 0);
+        const fileToUpload = toArray(files).filter(file => file.progress === 0);
         // Upload new files
         uploadFile(fileToUpload);
         setToggleUploadProgress(true)
@@ -47,9 +47,9 @@ const UploadProgress = props => {
                 </span>
             </div>
             <div className={Styles.scrollable}>
-                {/* Map through fileProgress and render UploadItem component for each file */}
-                {size(fileProgress)
-                    ? toArray(fileProgress).sort((a,b) => b.id - a.id).map(file => <UploadItem key={file.id} file={file} retryUpload={() => retryUpload(file.id)} />)
+                {/* Map through files and render UploadItem component for each file */}
+                {size(files)
+                    ? toArray(files).sort((a,b) => b.id - a.id).map(file => <UploadItem key={file.id} file={file} retryUpload={() => retryUpload(file.id)} />)
                     : null}
             </div>
         </div>
@@ -58,7 +58,7 @@ const UploadProgress = props => {
 
 // Map state to props
 const mapStateToProps = state => ({
-    fileProgress: state.FileUpload?.fileProgress,
+    files: state.FileUpload?.files,
 });
 
 // Map dispatch to props

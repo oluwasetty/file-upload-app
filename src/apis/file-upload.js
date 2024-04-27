@@ -19,9 +19,9 @@ export const retryUpload = (id) => {
     // Dispatch action to mark file for retry
     store.dispatch(retryUploadFile(id))
 
-    // Get current file progress from state
-    const { fileProgress } = store.getState().FileUpload
-    const reuploadFile = [fileProgress[id]]
+    // Get files from state
+    const { files } = store.getState().FileUpload
+    const reuploadFile = [files[id]]
 
     // Call action to upload the file again
     uploadFile(reuploadFile)

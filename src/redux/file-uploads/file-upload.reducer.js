@@ -4,43 +4,43 @@ import { produce } from "immer";
 import axios from 'axios';
 import { STATUS_UPLOAD } from "../../utils/constants";
 
-// Initial state for file progress
+// Initial state for files
 const INITIAL_STATE = {
-    fileProgress: [],
+    files: [],
 }
 
-// Reducer function for file progress
-const fileProgressReducer = (state = INITIAL_STATE, action) =>
+// Reducer function for files
+const filesReducer = (state = INITIAL_STATE, action) =>
     produce(state, draft => {
         switch (action.type) {
             // set file upload data
             case fileUploadTypes.SET_FILE_UPLOAD:
-                draft.fileProgress = modifyFiles(state.fileProgress, action.payload);
+                draft.files = modifyFiles(state.files, action.payload);
                 break;
 
             // set upload progress
             case fileUploadTypes.SET_UPLOAD_PROGRESS:
-                draft.fileProgress[action.payload.id].status = STATUS_UPLOAD.uploading;
-                draft.fileProgress[action.payload.id].progress = action.payload.progress;
+                draft.files[action.payload.id].status = STATUS_UPLOAD.uploading;
+                draft.files[action.payload.id].progress = action.payload.progress;
                 break;
 
             // successful file upload
             case fileUploadTypes.SUCCESS_UPLOAD_FILE:
-                draft.fileProgress[action.payload].status = STATUS_UPLOAD.success;
+                draft.files[action.payload].status = STATUS_UPLOAD.success;
                 break;
 
             // failed file upload
             case fileUploadTypes.FAILURE_UPLOAD_FILE:
-                draft.fileProgress[action.payload].status = STATUS_UPLOAD.failed;
+                draft.files[action.payload].status = STATUS_UPLOAD.failed;
                 break;
 
             // retry file upload
             case fileUploadTypes.RETRY_UPLOAD_FILE:
                 const CancelToken = axios.CancelToken;
                 const cancelSource = CancelToken.source();
-                draft.fileProgress[action.payload].status = STATUS_UPLOAD.uploading;
-                draft.fileProgress[action.payload].progress = 0;
-                draft.fileProgress[action.payload].cancelSource = cancelSource;
+                draft.files[action.payload].status = STATUS_UPLOAD.uploading;
+                draft.files[action.payload].progress = 0;
+                draft.files[action.payload].cancelSource = cancelSource;
                 break;
 
             default:
@@ -48,4 +48,4 @@ const fileProgressReducer = (state = INITIAL_STATE, action) =>
         }
     });
 
-export default fileProgressReducer;
+export default filesReducer;
